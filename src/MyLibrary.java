@@ -3,6 +3,10 @@ public class MyLibrary {
     private Book[] myBooks = new Book[100];
     private int index = 0;
 
+    public Book[] getMyBooks() {
+        return myBooks;
+    }
+
     boolean addBook(Book book) {
         boolean ok = false;
         if (index < 100) {

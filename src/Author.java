@@ -17,4 +17,11 @@ public class Author {
     public void setPreferred(boolean preferred) {
         isPreferred = preferred;
     }
+    Author(String name) {
+        this.name = name;
+        this.isPreferred = true;
+    }
+    public String toString () {
+        return name;
+    }
 }
