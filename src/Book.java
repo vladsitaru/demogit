@@ -22,10 +22,18 @@ public class Book {
         this.author = author;
     }
 
+    Book (Book book) {
+        this.name = book.getName();
+        this.author = book.getAuthor();
+    }
+
     public String toString() {
         String valToReturn = name + ", " + author.getName();
         return valToReturn;
     }
 
-
+    public WishListObj addToWishList(Book book) {
+        WishListObj wishObj = new WishListObj(new Book(name, author));
+        return wishObj;
+    }
 }

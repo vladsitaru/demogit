@@ -1,6 +1,7 @@
 public class WishList {
     private WishListObj wishList[] = new WishListObj[100];
     private int index;
+
     public WishListObj[] getWishList() {
         return wishList;
     }

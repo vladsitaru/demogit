@@ -1,36 +1,44 @@
-public class WishListObj {
-    private Book book;
+public class WishListObj extends Book {
     private boolean isInMyLibrary;
+    static private int index = 0;
 
-    public Book getBook() {
-        return book;
+
+    // getters
+
+    public static int getIndex() {
+        return index;
     }
 
-    public void setBook(Book book) {
-        this.book = book;
-    }
-
-    public boolean isInMyLibrary() {
+    public boolean getIsInMyLibrary() {
         return isInMyLibrary;
     }
 
+    //setter
     public void setInMyLibrary(boolean inMyLibrary) {
         isInMyLibrary = inMyLibrary;
     }
 
+    //constructor
     WishListObj(Book book, MyLibrary library) {
-        System.out.println("Creating WishListObj");
-        this.book = book;
+        super(book);
+        index++;
         for (int i = 0; i < library.getMyBooks().length; i++) {
-            System.out.println("In WishListObj loop nr " + i);
-            if(library.getMyBooks()[i].equals(book)){ //&& library.getMyBooks()[i].getAuthor().getName().equals(book.getAuthor())
-                isInMyLibrary = true;
+            if (library.getMyBooks()[i] != null){
+                if(library.getMyBooks()[i].getName() == book.getName()) {
+                    isInMyLibrary = true;
+                    }
             }
         }
 
     }
+    WishListObj(Book book) {
+        super(book);
+        index++;
+        isInMyLibrary = false;
+    }
+    @Override
     public String toString() {
-        String valToReturn = book.getName() + " | " + book.getAuthor() + " | " + isInMyLibrary();
+        String valToReturn = super.getName() + " | " + super.getAuthor() + " | " + getIsInMyLibrary();
         return valToReturn;
     }
 }
