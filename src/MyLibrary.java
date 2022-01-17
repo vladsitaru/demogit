@@ -34,7 +34,7 @@ public class MyLibrary {
         for(int i = 0; i < myBooks.length; i++) {
             isInWishList = false;
             if (myBooks[i] != null) {
-                for (int j = 0; j < wishList.getWishList().length; i++) {
+                for (int j = 0; j < wishList.getWishList().length; j++) {
                     if (wishList.getWishList()[j] != null) {
                         if (myBooks[i].getName() == wishList.getWishList()[j].getName())
                             isInWishList = true;

@@ -32,8 +32,18 @@ public class Book {
         return valToReturn;
     }
 
-    public WishListObj addToWishList(Book book) {
-        WishListObj wishObj = new WishListObj(new Book(name, author));
-        return wishObj;
+    public void addToWishList(WishList wishlist) {
+        WishListObj wishObj = new WishListObj(new Book(this.name, this.author));
+//        if (wishlist.getWishListIndex() < wishlist.getWishListIndex()) {
+            boolean added = false;
+            int i = 0;
+            do {
+                if(wishlist.getWishList()[i] == null) {
+                    wishlist.getWishList()[i] = wishObj;
+                    added = true;
+                    }
+                i++;
+                }
+            while(added != true);
+        }
     }
-}

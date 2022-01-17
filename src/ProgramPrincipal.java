@@ -7,7 +7,7 @@ public class ProgramPrincipal {
 
         // in library
         Book a1 = new Book("Ion", new Author("Liviu Rebreanu"));
-        Book a2 = new Book("Poezii", new Author("Vasile Alecsandri"));
+        Book a2 = new Book("Povestiri V.A.", new Author("Vasile Alecsandri"));
         Book a3 = new Book("Dănilă Prepeleac", new Author("Ion Creanga"));
         eBook b1 = new eBook("Amintiri din copilarie", new Author("Ion Creanga"), "amintiri.pdf");
         eBook b2 = new eBook("Poezii", new Author("Ion Creanga"), "poezii.pdf");
@@ -26,22 +26,33 @@ public class ProgramPrincipal {
         Book a5 = new Book("Cartea 2", new Author("Autor 2"));
         Book a6 = new Book("Cartea 3", new Author("Autor 3"));
 
-        // creating wishlist objects
 
-        WishListObj book1 = new WishListObj(a1, library);
-        WishListObj book2 = new WishListObj(a2, library);
-        WishListObj book3 = new WishListObj(a4);
-        WishListObj book4 = new WishListObj(a5);
-        WishListObj book5 = new WishListObj(a6);
+        // adding books to WishList
 
-        // adding them to WishList
+        a1.addToWishList(wishList);
+        a2.addToWishList(wishList);
+        b1.addToWishList(wishList);
+        b2.addToWishList(wishList);
+        a4.addToWishList(wishList);
+        a5.addToWishList(wishList);
 
-        wishList.addToWishList(book1);
-        wishList.addToWishList(book2);
-        wishList.addToWishList(book3);
-        wishList.addToWishList(book4);
-        wishList.addToWishList(book5);
+        //print wishlist
 
+        wishList.printWishList();
+
+        System.out.println();
+        System.out.println("Library reading status");
+        System.out.println();
+
+        // shows books in library (being read) and if they are in wishlist
         library.readingStatus(wishList);
+
+        System.out.println();
+        System.out.println("Wishlist own status");
+        System.out.println();
+
+        // prints wishlist and shows which are in library, which not
+
+        wishList.doIOwnTheseBooks(library);
     }
 }
